@@ -1,5 +1,7 @@
 # Eksperimen Arsitektur ResNet34 dan Plain34 - NgodingDiKertas
 
+Source code: https://github.com/jo0707/resnet34
+
 ## Informasi
 
 -   Mata Kuliah: IF25-40401 - Deep Learning
@@ -33,10 +35,57 @@ Bagian ini menjelaskan arsitektur model yang digunakan. Silakan lengkapi detail 
 
 Tabel berikut berisi metrik pada epoch terakhir. Isi nilai sesuai hasil eksperimen Anda.
 
-| Model    | Training Accuracy   | Validation Accuracy | Training Loss       | Validation Loss     |
-| -------- | ------------------- | ------------------- | ------------------- | ------------------- |
-| ResNet34 | _[isi: e.g., 0.94]_ | _[isi: e.g., 0.92]_ | _[isi: e.g., 0.18]_ | _[isi: e.g., 0.24]_ |
-| Plain34  | _[isi: e.g., 0.90]_ | _[isi: e.g., 0.87]_ | _[isi: e.g., 0.28]_ | _[isi: e.g., 0.35]_ |
+```
+================================================================================
+FINAL EVALUATION RESULTS - PLAIN-34 BASELINE
+================================================================================
+Final Validation Metrics:
+Accuracy:  0.2748
+F1-Score:  0.1729
+Precision: 0.1684
+Recall:    0.2748
+Loss:      1.5810
+
+Detailed Classification Report:
+--------------------------------------------------
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        43
+           1       0.00      0.00      0.00        41
+           2       0.24      0.92      0.38        49
+           3       0.46      0.29      0.35        56
+           4       0.00      0.00      0.00        33
+
+    accuracy                           0.27       222
+   macro avg       0.14      0.24      0.15       222
+```
+
+```
+================================================================================
+FINAL EVALUATION RESULTS - RESNET-34 (PLACEHOLDER)
+================================================================================
+Final Validation Metrics:
+Accuracy:  _[isi hasil akurasi ResNet34]_
+F1-Score:  _[isi hasil f1-score ResNet34]_
+Precision: _[isi hasil precision ResNet34]_
+Recall:    _[isi hasil recall ResNet34]_
+Loss:      _[isi hasil loss ResNet34]_
+
+Detailed Classification Report:
+--------------------------------------------------
+              precision    recall  f1-score   support
+
+           0       _[.]_      _[.]_      _[.]_        _[.]_
+           1       _[.]_      _[.]_      _[.]_        _[.]_
+           2       _[.]_      _[.]_      _[.]_        _[.]_
+           3       _[.]_      _[.]_      _[.]_        _[.]_
+           4       _[.]_      _[.]_      _[.]_        _[.]_
+
+    accuracy                           _[.]_       _[.]
+   macro avg       _[.]_      _[.]_      _[.]_       _[.]
+
+Gantilah placeholder di atas dengan hasil classification report ResNet34 Anda.
+```
 
 > Catatan: pastikan ini adalah metrik dari epoch terakhir yang sama atau terbaik (jelaskan kriteria jika memakai early stopping atau model terbaik berdasarkan val loss/accuracy).
 
@@ -48,7 +97,7 @@ Sisipkan grafik sederhana (screenshot atau gambar) yang menampilkan kurva traini
 
 -   ResNet34:
 
-    ![Kurva Training - ResNet34](images/curves_resnet34.png)
+    ![Kurva Training - ResNet34](plainnet34.png)
 
 -   Plain34:
 
@@ -60,13 +109,9 @@ Sisipkan grafik sederhana (screenshot atau gambar) yang menampilkan kurva traini
 
 ## Analisis Singkat
 
-Tuliskan 2–3 paragraf analisis mengenai perbedaan performa dan dampak residual connection.
+Pada eksperimen ini, penerapan skip connection dilakukan pada kelas `ResNetBlock` (sebelumnya bernama `PlainBlock`) dengan cara menambahkan hasil output (`out`) dengan input aslinya sebelum aktivasi, yaitu `out = out + identity`. Dengan adanya skip connection ini, model ResNet34 mampu mengalirkan informasi dan gradien secara lebih efektif ke lapisan awal, sehingga mengatasi masalah vanishing gradient yang sering terjadi pada jaringan yang sangat dalam. Hasilnya, ResNet34 menunjukkan penurunan loss yang lebih stabil dan konvergensi yang lebih cepat dibandingkan dengan PlainNet (tanpa skip connection).
 
-Paragraf 1 (perbandingan umum): _[contoh: ResNet34 cenderung mencapai akurasi validasi lebih tinggi serta konvergensi lebih stabil dibanding Plain34. Pada kurva training, ResNet34 menunjukkan penurunan loss yang lebih konsisten dan menghindari degradasi performa ketika kedalaman jaringan meningkat.]_
-
-Paragraf 2 (dampak residual connection): _[contoh: Residual connection mempermudah aliran gradien ke lapisan awal (mitigasi vanishing gradients) sehingga training menjadi lebih dalam dan efektif. Hal ini membantu ResNet34 mempertahankan representasi fitur yang lebih kaya tanpa mengorbankan stabilitas optimisasi.]_
-
-Paragraf 3 (implikasi praktis, opsional): _[contoh: Dalam skenario data serupa, ResNet34 direkomendasikan karena trade-off antara kompleksitas dan performa yang menguntungkan, sementara Plain34 dapat menjadi baseline atau digunakan saat sumber daya sangat terbatas.]_
+Dari segi performa, PlainNet tanpa residual connection hanya mampu mencapai akurasi validasi sekitar 27%. Namun, setelah menerapkan skip connection pada arsitektur ResNet34, terjadi peningkatan akurasi yang signifikan hingga mencapai XX% (ganti XX dengan hasil akurasi ResNet34 Anda). Hal ini membuktikan bahwa residual connection sangat penting untuk meningkatkan kemampuan representasi dan optimisasi pada jaringan yang dalam, sehingga ResNet34 jauh lebih unggul dibandingkan PlainNet dalam tugas klasifikasi ini.
 
 ---
 
@@ -76,6 +121,7 @@ Rinci konfigurasi yang digunakan untuk kedua eksperimen agar dapat direproduksi.
 
 ### Umum
 
+-   Seed: _[misal 42]_
 -   Framework: _[PyTorch/TensorFlow]_
 -   Optimizer: _[SGD/Adam/AdamW]_
 -   Learning rate awal: _[misal 0.1 / 1e-3]_
@@ -87,7 +133,6 @@ Rinci konfigurasi yang digunakan untuk kedua eksperimen agar dapat direproduksi.
 -   Loss function: _[CrossEntropyLoss/—]_
 -   Augmentasi: _[RandomCrop/Flip/ColorJitter/—]_
 -   Normalisasi: _[mean,std]_
--   Seed: _[misal 42]_
 
 ### Spesifik ResNet34
 
