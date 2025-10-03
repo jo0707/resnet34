@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1759504722.73205 "main.aux" "main.bbl" "main" 1759504733.58972 0
+["bibtex main"] 1759505762.02389 "main.aux" "main.bbl" "main" 1759505764.59836 0
   "./Referensi.bib" 1759499717 533 57c34cb2e6e6fddb7f5a6628f2f8a058 ""
   "C:/Program Files/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1759504732 6262 65e812758346da94383b47107c6ebda0 "pdflatex"
+  "main.aux" 1759505763 6273 affe6f07a817d48b53b0d483cac4f688 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1759504731.50487 "d:/KULIAH/Semester 7/Pembelajaran Mendalam/Mgg6 - ResNet/resnet34/Laporan/main.tex" "main.pdf" "main" 1759504733.59033 0
+["pdflatex"] 1759505762.31308 "d:/KULIAH/Semester 7/Pembelajaran Mendalam/Mgg6 - ResNet/resnet34/Laporan/main.tex" "main.pdf" "main" 1759505764.59905 0
   "C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Program Files/MiKTeX/fonts/tfm/jknappen/ec/ecbx1095.tfm" 993061956 3228 aacd2ac2d814480e4422ad7e830fd2d4 ""
   "C:/Program Files/MiKTeX/fonts/tfm/jknappen/ec/ecbx1200.tfm" 993061958 3200 b8d69bc738e5ef3e08cefeef3109ff56 ""
@@ -220,11 +220,11 @@
   "Figure/tahap-3-resnet34-adamw.jpg" 1759494758 56589 4a3713353db6c816deb74d58a77dac90 ""
   "Figure/tahap-3-resnext34-adamw.jpg" 1759494758 70900 709a11a3ff33dc8676b3822482c4dd2a ""
   "Figure/tahap-3-resnext34.jpg" 1759494758 59908 a48a1f098e22be8b0e653e357b31b274 ""
-  "d:/KULIAH/Semester 7/Pembelajaran Mendalam/Mgg6 - ResNet/resnet34/Laporan/main.tex" 1759504730 14503 009f9457d01af8f0a05c07fc83232103 ""
-  "main.aux" 1759504732 6262 65e812758346da94383b47107c6ebda0 "pdflatex"
-  "main.bbl" 1759504722 1327 0a024b04b6df64927ec27c6fb27b992a "bibtex main"
-  "main.out" 1759504732 4952 89a0780a5fee06f570722919be609f5e "pdflatex"
-  "main.tex" 1759504730 14503 009f9457d01af8f0a05c07fc83232103 ""
+  "d:/KULIAH/Semester 7/Pembelajaran Mendalam/Mgg6 - ResNet/resnet34/Laporan/main.tex" 1759505759 14514 57b6b83f0501cccf48c0be60d6fecf2d ""
+  "main.aux" 1759505763 6273 affe6f07a817d48b53b0d483cac4f688 "pdflatex"
+  "main.bbl" 1759505762 1327 0a024b04b6df64927ec27c6fb27b992a "bibtex main"
+  "main.out" 1759505763 5010 5625fc4445c7fc2b18a11950738a7b4a "pdflatex"
+  "main.tex" 1759505759 14514 57b6b83f0501cccf48c0be60d6fecf2d ""
   (generated)
   "main.aux"
   "main.log"

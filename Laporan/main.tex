@@ -208,7 +208,7 @@ Best validation accuracy 82.88\%, meningkat 38.2 poin dari baseline (44.7\%). Me
 \subsubsection{Analisis}
 Peningkatan dari 44.7\%→82.88\% membuktikan dampak pemisahan weight decay dari gradient update. AdamW mencegah weight decay tereduksi oleh adaptive learning rate, menghasilkan regularisasi lebih efektif dan optimisasi lebih stabil.
 
-\subsection{Modifikasi 2: Arsitektur ResNeXt}
+\subsection{Modifikasi 2: Arsitektur ResNeXt-like Block}
 \subsubsection{Implementasi}
 ResNet block diganti dengan ResNeXt-like block (grouped convolution, cardinality 16). Input dibagi 16 kelompok independen, diproses Conv 3x3, lalu diagregat sebelum skip connection. Diuji dengan Adam (LR 1e-3) dan AdamW (LR 1e-3, WD 5e-4), batch size 32/64, 8 epoch.
 
